@@ -42,13 +42,14 @@
    * @alias module:ApiClient
    * @class
    */
-  var exports = function() {
+  var exports = function(hostname) {
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
      * @default http://localhost/api/v1
      */
-    this.basePath = 'http://localhost/api/v1'.replace(/\/+$/, '');
+    hostname = hostname || 'localhost';
+    this.basePath = `http://${hostname}/api/v1`.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
